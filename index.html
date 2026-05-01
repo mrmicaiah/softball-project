@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Softball Facts — by Kensey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #B8E0F2;
+  --sky-deep: #7CC2E0;
+  --sky-dark: #2E7DA8;
+  --pink: #FF8FB8;
+  --pink-deep: #E85B91;
+  --cream: #FFFBF2;
+  --ink: #1B2A3A;
+  --stitch: #E85B91;
+  --shadow: rgba(27, 42, 58, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Fraunces', Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(184, 224, 242, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(255, 143, 184, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(124, 194, 224, 0.35) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(27, 42, 58, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+main { position: relative; z-index: 2; }
+
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+  position: relative;
+}
+
+.eyebrow {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: var(--pink-deep);
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-family: 'Bungee', sans-serif;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.9;
+  color: var(--sky-dark);
+  text-shadow:
+    4px 4px 0 var(--pink),
+    8px 8px 0 var(--ink);
+  letter-spacing: -0.02em;
+  margin: 10px 0;
+}
+
+.byline {
+  font-family: 'Caveat', cursive;
+  font-size: 2.4rem;
+  color: var(--ink);
+  margin-top: 10px;
+  display: inline-block;
+  padding: 4px 24px;
+  background: var(--pink);
+  border: 3px solid var(--ink);
+  border-radius: 30px;
+  transform: rotate(2deg);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.float-ball {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  animation: float 4s ease-in-out infinite;
+}
+.float-ball::before, .float-ball::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  border: 2px dashed var(--stitch);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.float-ball.b1 { top: 80px; left: 5%; animation-delay: 0s; }
+.float-ball.b2 { top: 120px; right: 5%; animation-delay: 1s; transform: scale(0.7); }
+.float-ball.b3 { top: 30px; right: 15%; animation-delay: 2s; transform: scale(0.5); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(15deg); }
+}
+.float-ball.b2 { animation: float-2 5s ease-in-out infinite; }
+@keyframes float-2 {
+  0%, 100% { transform: scale(0.7) translateY(0) rotate(0deg); }
+  50% { transform: scale(0.7) translateY(-20px) rotate(-20deg); }
+}
+
+.intro {
+  max-width: 700px;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.intro strong { color: var(--pink-deep); font-weight: 900; }
+
+.photo-strip {
+  display: flex;
+  gap: 24px;
+  padding: 40px 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.polaroid {
+  background: white;
+  padding: 12px 12px 40px;
+  box-shadow: 0 8px 20px var(--shadow), 0 2px 4px rgba(0,0,0,0.1);
+  border: 2px solid var(--ink);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(1) { transform: rotate(-4deg); }
+.polaroid:nth-child(2) { transform: rotate(3deg); margin-top: 20px; }
+.polaroid:nth-child(3) { transform: rotate(-2deg); margin-top: -10px; }
+.polaroid:nth-child(4) { transform: rotate(5deg); }
+
+.polaroid:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
+.polaroid img {
+  width: 240px;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  background: var(--sky);
+}
+
+.polaroid .caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 8px;
+  color: var(--ink);
+}
+
+.facts-section {
+  padding: 80px 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Bungee', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  text-align: center;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: var(--pink-deep);
+  margin-bottom: 50px;
+  transform: rotate(-1deg);
+  display: block;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fact-card {
+  background: white;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  padding: 28px 24px;
+  position: relative;
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.fact-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.fact-card:nth-child(odd) { background: var(--sky); }
+.fact-card:nth-child(3n) { background: white; }
+.fact-card:nth-child(5n) { background: var(--pink); }
+
+.fact-number {
+  position: absolute;
+  top: -16px;
+  left: -12px;
+  width: 56px;
+  height: 56px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.6rem;
+  border: 3px solid var(--cream);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.fact-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 8px 0 12px;
+  line-height: 1.1;
+  font-style: italic;
+}
+
+.fact-card p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.highlight {
+  background: var(--cream);
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  display: inline-block;
+}
+
+.fact-tag {
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--pink-deep);
+  margin-bottom: 8px;
+  transform: rotate(-2deg);
+  background: var(--cream);
+  padding: 2px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+}
+
+.fact-card:nth-child(5n) .fact-tag { background: white; }
+
+.fact-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  margin: 14px 0 4px;
+  background: var(--cream);
+}
+
+.quiz-zone {
+  padding: 100px 20px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.quiz-prompt {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.quiz-prompt-2 {
+  font-family: 'Bungee', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--sky-dark);
+  margin-bottom: 40px;
+  display: block;
+  text-shadow: 3px 3px 0 var(--pink);
+}
+
+.quiz-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: none;
+  padding: 0;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(8px 8px 0 rgba(27, 42, 58, 0.5));
+}
+
+.quiz-button:hover {
+  transform: translate(-3px, -3px) rotate(-3deg) scale(1.03);
+}
+
+.quiz-button:active {
+  transform: translate(2px, 2px);
+}
+
+.quiz-ball-wrap {
+  position: relative;
+  width: clamp(280px, 50vw, 420px);
+  display: inline-block;
+}
+
+.quiz-ball-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.quiz-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: 'Bungee', sans-serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: var(--ink);
+  text-shadow:
+    -2px -2px 0 var(--cream),
+    2px -2px 0 var(--cream),
+    -2px 2px 0 var(--cream),
+    2px 2px 0 var(--cream),
+    6px 6px 0 var(--pink-deep);
+  pointer-events: none;
+  letter-spacing: 2px;
+}
+
+.arrows-hint {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: var(--pink-deep);
+  margin-top: 24px;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+
+.arrow-down {
+  display: inline-block;
+  font-size: 2rem;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--ink);
+  border-top: 3px dashed var(--ink);
+  margin-top: 40px;
+}
+
+footer .heart { color: var(--pink-deep); }
+
+@media (max-width: 600px) {
+  .float-ball { display: none; }
+  h1 { text-shadow: 3px 3px 0 var(--pink), 5px 5px 0 var(--ink); }
+  .polaroid img { width: 200px; height: 240px; }
+  .fact-card { padding: 24px 18px; }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fact-card { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+.fact-card:nth-child(1) { animation-delay: 0.1s; }
+.fact-card:nth-child(2) { animation-delay: 0.2s; }
+.fact-card:nth-child(3) { animation-delay: 0.3s; }
+.fact-card:nth-child(4) { animation-delay: 0.4s; }
+.fact-card:nth-child(5) { animation-delay: 0.5s; }
+
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="float-ball b1"></div>
+  <div class="float-ball b2"></div>
+  <div class="float-ball b3"></div>
+
+  <span class="eyebrow">~ a project by ~</span>
+  <h1>SOFTBALL<br>FACTS</h1>
+  <span class="byline">by Kensey ★</span>
+</header>
+
+<section class="intro fade-up">
+  <p>Softball might look simple — but it's packed with weird, wild, and totally surprising history. Read up, then scroll down for the <strong>QUIZ SHOWDOWN</strong>: girls vs. guys! 🥎</p>
+</section>
+
+<section class="photo-strip">
+  <div class="polaroid">
+    <img src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_500,h_600,c_fill,g_auto/v1777646897/IMG_1517_vd2kpb.jpg" alt="Kensey playing softball">
+    <div class="caption">on the field</div>
+  </div>
+  <div class="polaroid">
+    <img src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_500,h_600,c_fill,g_auto/v1777646895/IMG_1508_hqd4rn.heic" alt="Kensey playing softball">
+    <div class="caption">batter up!</div>
+  </div>
+  <div class="polaroid">
+    <img src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_500,h_600,c_fill,g_auto/v1777646895/IMG_1554_avsgll.heic" alt="Kensey playing softball">
+    <div class="caption">game day ♡</div>
+  </div>
+  <div class="polaroid">
+    <img src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_500,h_600,c_fill,g_auto/v1777646893/IMG_1557_r5nbiv.heic" alt="Kensey playing softball">
+    <div class="caption">go team!</div>
+  </div>
+</section>
+
+<section class="facts-section">
+  <h2 class="section-title">5 Facts You Probably Didn't Know</h2>
+  <span class="section-subtitle">~ study up — these are on the quiz! ~</span>
+
+  <div class="facts-grid">
+
+    <article class="fact-card">
+      <div class="fact-number">1</div>
+      <span class="fact-tag">origin story</span>
+      <h3>Softball's First Name Was "Kitten Ball"</h3>
+      <p>When softball was invented in <span class="highlight">1887</span>, it wasn't even called softball! It went by <strong>Kitten Ball</strong>, "Mush Ball," and "Diamond Ball" before the official name "softball" was chosen in 1926.</p>
+    </article>
+
+    <article class="fact-card">
+      <div class="fact-number">2</div>
+      <span class="fact-tag">where it started</span>
+      <h3>Born Indoors in Chicago</h3>
+      <p>The very first softball game was played <strong>indoors</strong> in <span class="highlight">Chicago</span>. The "ball" was a boxing glove tied with string, and the "bat" was a broom handle. Fancy, right?</p>
+    </article>
+
+    <article class="fact-card">
+      <div class="fact-number">3</div>
+      <span class="fact-tag">don't be fooled</span>
+      <h3>Softballs Are Actually HARDER</h3>
+      <p>Despite the name, a softball is <strong>harder</strong> than a baseball. Want proof? Here's what's packed inside one:</p>
+      <img class="fact-image" src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_600/v1777647183/inside_a_softball_cpov7z.jpg" alt="Inside a softball">
+    </article>
+
+    <article class="fact-card">
+      <div class="fact-number">4</div>
+      <span class="fact-tag">on the mound</span>
+      <h3>The Famous Windmill Pitch</h3>
+      <p>That cool full-circle pitch where the pitcher's arm whips all the way around? It's called the <strong>windmill</strong>. It's unique to fastpitch softball — you won't see it in baseball!</p>
+      <img class="fact-image" src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_600/v1777647184/field_play_map_nyofly.webp" alt="Softball field positions">
+    </article>
+
+    <article class="fact-card">
+      <div class="fact-number">5</div>
+      <span class="fact-tag">science!</span>
+      <h3>Less Time to Swing Than MLB</h3>
+      <p>Top softball pitchers throw around 70 mph — but the mound is way closer than in baseball. So softball batters actually have <em>less</em> <strong>reaction time</strong> than MLB hitters facing 100 mph fastballs!</p>
+    </article>
+
+  </div>
+</section>
+
+<section class="quiz-zone">
+  <span class="quiz-prompt">~ ready to play? ~</span>
+  <span class="quiz-prompt-2">GIRLS vs. GUYS — 5 ROUNDS</span>
+
+  <a href="quiz.html" class="quiz-button" aria-label="Start the quiz">
+    <div class="quiz-ball-wrap">
+      <img src="https://res.cloudinary.com/dxzw1zwez/image/upload/f_auto,q_auto,w_800/v1777647183/torn_up_softball_dzfd1s.webp" alt="Torn softball quiz button">
+      <span class="quiz-text">QUIZ!</span>
+    </div>
+  </a>
+
+  <div>
+    <span class="arrows-hint">click the ball to start! <span class="arrow-down">↓</span></span>
+  </div>
+</section>
+
+<footer>
+  Made with <span class="heart">♥</span> by Kensey · Softball Project
+</footer>
+
+</main>
+</body>
+</html>
